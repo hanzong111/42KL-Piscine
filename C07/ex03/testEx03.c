@@ -9,22 +9,26 @@ int		ft_strcount(char **strs);
 int	main()
 {
 	char	seperator[10] = "BBOOMBOOM";
-	char	s1[100] = "hello world";
-	char	s2[100] = "no boooommmm";
-	char	s3[100] = "shakslaksksj";
-	char	s4[100] = "HI STEEVE";
-	char	s5[100] = "HEY JASON";
+	char	s1[20] = "hello world\0";
+	char	s2[20] = "no boooommmm\0";
+	char	s3[20] = "shakslaksksj\0";
+	char	s4[20] = "HI STEEVE\0";
+	//char	s5[20] = "HEY JASON\0";
 	char	**strs;
 	char	*ptr;
-	int		size = 6;
+	int		size = 4;
 
 
-	strs = (char **)malloc(sizeof(char *) *5);
+	strs = (char **)malloc(sizeof(char *) * (size + 1));
+	if (strs == NULL)
+		return (0);
 	strs[0] = s1;
 	strs[1] = s2;
 	strs[2] = s3;
 	strs[3] = s4;
-	strs[4] = s5;
+	//strs[4] = s5;
+	strs[4] = 0;
+	
 
 
 	ptr = ft_strjoin(size,strs,seperator);

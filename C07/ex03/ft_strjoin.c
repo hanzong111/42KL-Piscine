@@ -6,11 +6,12 @@
 /*   By: ojing-ha <ojing-ha@42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/04 17:59:20 by ojing-ha          #+#    #+#             */
-/*   Updated: 2022/06/05 16:58:55 by ojing-ha         ###   ########.fr       */
+/*   Updated: 2022/06/09 15:31:43 by ojing-ha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdlib.h>
+#include <stdio.h>
 
 int	ft_sepcount(char *sep)
 {
@@ -36,7 +37,7 @@ int	ft_strcount(char **strs)
 	while (strs[a] != NULL)
 	{
 		b = 0;
-		while (strs[a][b] != '\0')
+		while ( strs[a][b] != '\0')
 		{
 			count++;
 			b++;
@@ -87,8 +88,12 @@ char	*ft_strjoin(int size, char **strs, char *sep)
 	char	*finalstr;
 	char	*ptr;
 
-	if (size <= 0)
-		return (NULL);
+	if (size <= 0 || strs[0] == NULL)
+	{
+		ptr = (char *) malloc(sizeof(char) * 1);
+		ptr[0] = '\0';
+		return (ptr);
+	}
 	count = ft_strcount(strs);
 	sepcount = ft_sepcount(sep);
 	sepcount = sepcount * (size - 1);
