@@ -17,6 +17,7 @@ int	main(int argc,char **argv)
 	{
 	
 		a = 0;
+		printf("Array[%d]:",index);
 		while (split[index][a] != '\0')
 		{
 			write(1, &split[index][a], 1);
@@ -30,6 +31,8 @@ int	main(int argc,char **argv)
 
 
 	 if (argc != 3)
-	 	printf("HAHHAHAHAH");
+	 	printf("\n");
+	
+	return (0);
 
 }
